@@ -1,5 +1,5 @@
 
-### 1. сlone a project 
+### 1. download or сlone a project 
 
 ### 2.1 cd server 
 ### 2.2 npm i
