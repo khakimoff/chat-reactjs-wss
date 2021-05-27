@@ -4,8 +4,6 @@ import './index.css';
 import App from './copmonents/App';
 import reportWebVitals from './reportWebVitals';
 
-// import Emoji from './copmonents/Emoji/emoji';
-
 ReactDOM.render(
   <React.StrictMode>
     <App />

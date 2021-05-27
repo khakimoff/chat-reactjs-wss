@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { InputAdornment, Button, TextField } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Logo from '../Logo';
@@ -16,8 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function AutorizartionForm({value, onClick, setUsername, setMyName}) {
-  const [disabled, setDisabled] = useState(true);
+function AutorizartionForm({value, onClick, setUsername, setMyName, disabled, setDisabled}) {
 
   const classes = useStyles();
 

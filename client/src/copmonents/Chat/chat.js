@@ -1,15 +1,16 @@
-import React, { useEffect, useRef  } from 'react';
+import React, { useEffect, useRef } from 'react';
 import moment from 'moment';
 import { Toolbar, Typography, CssBaseline, Paper, Button, TextField,
         List, ListItem, ListItemAvatar, ListItemText, ListSubheader,
-        Avatar  } from '@material-ui/core';
+        Avatar, InputAdornment  } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import HaderHideOnScroll from '../HideOnScroll';
 import ScrollTop from '../ScrollTop';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './index.module.scss';
-
-
+import SentimentSatisfiedRoundedIcon from '@material-ui/icons/SentimentSatisfiedRounded';
+import Emoji from '../Emoji/emoji';
+ 
 const useStyles = makeStyles((theme) => ({
     text: {
       padding: theme.spacing(2, 2, 0),
@@ -27,10 +28,18 @@ const useStyles = makeStyles((theme) => ({
       color: '#3f51b5',
       textAlign: 'center'
     }, 
+    listitemText: {
+      color: 'black'
+    }, 
+    listitemAvatar: {
+      zIndex: '0'
+    }
 }));
 
 
-function Chat({messages, myName, value, setValue, sendMessage, setDisabled, disabled}) {
+function Chat({ messages, myName, value, setValue, sendMessage, setDisabled, 
+              disabled, setChosenEmoji, hidden, setHidden }) {
+              
   const classes = useStyles();
 
   const messageRef = useRef();
@@ -46,7 +55,14 @@ function Chat({messages, myName, value, setValue, sendMessage, setDisabled, disa
           inline: 'nearest'
         })
     }
-  })
+  });
+
+  function  onEmojiClick(event, emojiObject) {
+    const {emoji} = emojiObject;
+    setChosenEmoji(emojiObject);
+    setValue(value + emoji);
+    setDisabled(false);
+  }
 
   function onChangeTextFiel(e) {
     const value = e.target.value;
@@ -91,15 +107,14 @@ function Chat({messages, myName, value, setValue, sendMessage, setDisabled, disa
               {event === 'connection' ? 
                 <ListSubheader className={classes.newUser}>Пользователь {userName} подключился</ListSubheader> :
                 <ListItem >
-                  <ListItemAvatar>
-                    {console.log(userName, myName, 'userName')}
+                  <ListItemAvatar className={classes.listitemAvatar}>
                     <Avatar  alt="Profile Picture" src={person} 
                     style={userName === myName ? { display:'none'} : {display : 'block'}}  />
                   </ListItemAvatar>
                   <ListItemText 
                     className={classes.listitemText}
-                    primary={userName === myName ? `${time}` : `${userName} ${time}`}
-                    secondary={message}  
+                    primary={message}
+                    secondary={userName === myName ? `${time}` : `${userName} ${time}`}  
                     style={userName === myName ? {textAlign: 'right'} : {textAlign: 'left'}}
                   />
                 </ListItem>
@@ -108,9 +123,13 @@ function Chat({messages, myName, value, setValue, sendMessage, setDisabled, disa
           ))}
         </List>
       </Paper>
-        <div >
+        <div className={styles.wrapp_bottom}>
+            <Emoji 
+              hidden={hidden} 
+              onEmojiClick={onEmojiClick} 
+            />
             <form 
-              className={styles.wrapp_bottom} 
+              className={styles.wrapp_bottom_form} 
               onSubmit={onSubmitForm}
             >
               <TextField
@@ -124,9 +143,23 @@ function Chat({messages, myName, value, setValue, sendMessage, setDisabled, disa
                 value={value}
                 onChange={onChangeTextFiel} 
                 onKeyDown={onKeyDownTextField}
-              /> 
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment 
+                      position="end"
+                      onClick={()=> setHidden(!hidden)}>
+                      <SentimentSatisfiedRoundedIcon
+                        className={classes.icon}
+                        color="primary"
+                        cursor="pointer"
+                        fontSize="default"
+                      />
+                    </InputAdornment>
+                  )
+                }}
+              > 
+              </TextField>
               <Button
-
                 disabled={disabled}
                 onClick={sendMessage}
                 variant="contained"
