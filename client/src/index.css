@@ -20,4 +20,8 @@ a {
     text-decoration: none;
 }
 
+.MuiAvatar-root.MuiAvatar-circle.MuiAvatar-colorDefault {
+  display: flex!important;
+}
+
 
