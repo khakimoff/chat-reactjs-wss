@@ -1,0 +1,21 @@
+.wrapp {
+    display: flex;
+    max-width: 300px;
+    margin: 0 auto;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    .wrapp_form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid rgba(0, 0, 0, 0.42);
+        padding: 50px;
+        .wrapp_form_link {
+            cursor: default;
+            width: 100%;
+        }
+    }
+}
+
+
