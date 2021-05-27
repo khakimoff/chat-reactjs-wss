@@ -109,7 +109,7 @@ function Chat({ messages, myName, value, setValue, sendMessage, setDisabled,
                 <ListItem >
                   <ListItemAvatar className={classes.listitemAvatar}>
                     <Avatar  alt="Profile Picture" src={person} 
-                    style={userName === myName ? { display:'none'} : {display : 'flex'}}  />
+                      style={userName === myName ? { display:'none'} : {display : 'flex'}}  />
                   </ListItemAvatar>
                   <ListItemText 
                     className={classes.listitemText}
