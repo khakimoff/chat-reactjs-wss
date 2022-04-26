@@ -1,4 +1,4 @@
-# Getting Started with chat-reactjs-wss
+# chat-reactjs-wss
 
 > Project(shop) with use: React,WSS
 
