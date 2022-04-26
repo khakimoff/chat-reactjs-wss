@@ -4,7 +4,7 @@
 
 ```
 # Run project(backend)
-cd vanila
+cd backend
 npm install or yarn install
 node server
 
