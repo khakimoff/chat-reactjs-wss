@@ -105,7 +105,7 @@ function Chat({ messages, myName, value, setValue, sendMessage, setDisabled,
           {messages.map(({ id, userName, message, person, event }) => (
             <React.Fragment key={id}>
               {event === 'connection' ? 
-                <ListSubheader className={classes.newUser}>Пользователь {userName} подключился</ListSubheader> :
+                <ListSubheader className={classes.newUser}>User {userName} connected</ListSubheader> :
                 <ListItem >
                   <ListItemAvatar className={classes.listitemAvatar}>
                     <Avatar  alt="Profile Picture" src={person} 

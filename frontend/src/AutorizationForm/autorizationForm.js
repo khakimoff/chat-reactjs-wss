@@ -45,7 +45,7 @@ function AutorizartionForm({value, onClick, setUsername, setMyName, disabled, se
           value={value}
           onChange={onChangeTextField}
           id="input-with-icon-textfield"
-          label="Введите ваше имя"
+          label="Enter your name"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -62,7 +62,7 @@ function AutorizartionForm({value, onClick, setUsername, setMyName, disabled, se
             color="primary"
             disabled={disabled}
             >
-              Войти
+             Sign in
           </Button>
       </form>
     </div>
