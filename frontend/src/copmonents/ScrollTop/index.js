@@ -1,4 +1,4 @@
-import ScrollTop from './scrollTop';
+import ScrollTop from './ScrollTop.jsx';
 
 export default ScrollTop;
 

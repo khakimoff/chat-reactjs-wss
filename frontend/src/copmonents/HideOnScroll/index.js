@@ -1,4 +1,4 @@
-import HideOnScroll from '../HideOnScroll/hideOnScroll';
+import HideOnScroll from './HideOnScroll.jsx';
 
 export default HideOnScroll;
 

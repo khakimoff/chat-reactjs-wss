@@ -6,7 +6,6 @@ function Emoji({ hidden, onEmojiClick }) {
       <Picker onEmojiClick={onEmojiClick} />
     </div>
   );
-
 };
 
 export default Emoji;

@@ -1,4 +1,4 @@
-import Chat from '../Chat/chat';
+import Chat from './Chat.jsx';
 
 export default Chat;
 

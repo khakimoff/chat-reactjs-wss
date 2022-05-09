@@ -1,4 +1,4 @@
-import AutorizationForm from '../AutorizationForm/autorizationForm';
+import AutorizationForm from '../AutorizationForm/autorizationForm.jsx';
 
 export default AutorizationForm;
 

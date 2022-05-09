@@ -16,8 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function AutorizartionForm({value, onClick, setUsername, setMyName, disabled, setDisabled}) {
-
+function AutorizartionForm({ value, onClick, setUsername, setMyName, disabled, setDisabled }) {
   const classes = useStyles();
 
   function onSubmitForm(e) {
@@ -27,16 +26,16 @@ function AutorizartionForm({value, onClick, setUsername, setMyName, disabled, se
 
   function onChangeTextField(e) {
     const value = e.target.value;
-    setUsername(value); 
+    setUsername(value);
     setMyName(value)
     value.replace(/\s+/g, '').length > 0 ? setDisabled(false) : setDisabled(true);
   }
 
   return (
     <div className={styles.wrapp}>
-      <form className={styles.wrapp_form} onSubmit={onSubmitForm}>
-        <Logo 
-          height="100px" 
+      <form onSubmit={onSubmitForm}>
+        <Logo
+          height="100px"
           widtd="100px"
         />
         <TextField
@@ -53,17 +52,17 @@ function AutorizartionForm({value, onClick, setUsername, setMyName, disabled, se
               </InputAdornment>
             ),
           }}
-        /> 
-          <Button 
-            onClick={onClick}
-            className={classes.button}
-            type="submit"
-            variant="outlined" 
-            color="primary"
-            disabled={disabled}
-            >
-             Sign in
-          </Button>
+        />
+        <Button
+          onClick={onClick}
+          className={classes.button}
+          type="submit"
+          variant="outlined"
+          color="primary"
+          disabled={disabled}
+        >
+          Sign in
+        </Button>
       </form>
     </div>
   );

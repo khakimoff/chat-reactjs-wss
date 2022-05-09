@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     bottom: theme.spacing(2),
     right: theme.spacing(2),
-    '@media (max-width: 1024px)' : {
+    '@media (max-width: 1024px)': {
       display: 'none'
     }
   }
@@ -44,13 +44,13 @@ function Scroll(props) {
 function ScrollTop(props) {
   return (
     <Scroll {...props}  >
-      <Fab 
-        color="primary" 
-        size="small" 
+      <Fab
+        color="primary"
+        size="small"
         aria-label="scroll back to top">
-          <KeyboardArrowUpIcon />
+        <KeyboardArrowUpIcon />
       </Fab>
-  </Scroll>
+    </Scroll>
   );
 }
 
